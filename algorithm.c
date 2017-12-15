@@ -150,8 +150,6 @@ int try(int side, t_tetr *list, char *sqr)
 		{
 			if (( sp = get_sp(sqr, *list, side, list->tries)) == -1)
 			{
-				//printf("%s is failed\n", list->fig);
-				//printf("%s\n", sqr);
 				list->tries = 0;
 				if (list->pr_t == NULL)
 					return (0);
@@ -160,13 +158,6 @@ int try(int side, t_tetr *list, char *sqr)
 				list->s_p = -1;
 				clear(sqr);
 				fill(list, sqr);
-				// printf("%s\n", list->fig);
-				// printf("%i\n", list->s_p);
-				// printf("-----------\n");
-				
-				// temp = list->s_p;
-				
-				// get_sp(sqr, *list, side, temp + 1);
 			}
 			else
 			{
@@ -179,15 +170,14 @@ int try(int side, t_tetr *list, char *sqr)
 
 	int i;
 	i = 0;
-
-	//printf("%i\n", side);
 	while (sqr[i])
 	{
-		if (i % side == 0)
+		if (i % side == 0 && i != 0)
 			printf("\n");
 		printf("%c", sqr[i]);
 		i++;
 	}
+	printf("\n");
 	return (1);
 }
 
@@ -196,19 +186,31 @@ int fit_in_square(int side, t_tetr *list)
 	char *sqr;
 	int res;
 
-	printf("square with %i side\n", side);
+	//printf("square with %i side\n", side);
 	sqr = create_sqr(side);
 	res = try (side, list, sqr);
 	if (res == 0)
-	{
-		//printf("Wha?\n");
 		return (0);
-	}
-
 	return (1);
 }
 
 
+int print_one(char *single)
+{
+	int len;
+
+	single = ft_strtrim(single);
+	len = ft_strlen(single);
+	if (len == 13 || len == 4)
+		return (4);
+	else if (len > 6)
+		return (3);
+	else if (len == 5)
+		return (3);
+	else if (len == 6)
+		return (2);
+	return(1);
+}
 
 
 
@@ -218,7 +220,10 @@ void algorithm(char **valid, int count)
 	int res;
 	t_tetr *list;
 
-	side = make_square(count * 4);
+	if (count == 1)
+		side = print_one(valid[0]);
+	else 
+		side = make_square(count * 4);
 	list = prepare_list(valid, side);
 	if (list == NULL)
 		printf("SHIT\n");
@@ -226,9 +231,9 @@ void algorithm(char **valid, int count)
 	while (res == 0)
 	{
 		side += 1;
-		//printf("%s\n", list->fig);
 		list = change_list(valid, side, list);
-		//printf("%s\n", list->fig);
 		res = fit_in_square(side, list);
 	}
 }
+
+

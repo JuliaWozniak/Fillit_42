@@ -111,9 +111,12 @@ int wid_k(char *str)
 		return (3);
 	else if (ft_strequ(temp, "#..###") == 1)
 		return (2);
+	else if (ft_strequ(temp, "#...#...##"))
+		return (2);
 	else
 		return (0);
 }
+
 t_tetr *change_list(char **standard, int side, t_tetr *list)
 {
 	char *str;
@@ -127,6 +130,7 @@ t_tetr *change_list(char **standard, int side, t_tetr *list)
 		free(list->fig);
 		list->fig = str;
 		list->s_p = -1;
+		list->tries = 0;
 		list = list->n_t;
 		i++;
 	}

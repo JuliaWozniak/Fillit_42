@@ -111,6 +111,8 @@ int main(int argc, char **argv)
 		algorithm(valid_char, i);
 		// algorithm
 	}
+	else
+		printf("error\n");
 	return (0);
 }
 
