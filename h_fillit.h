@@ -14,7 +14,8 @@ typedef struct s_tetr
 	int wid; // width
 	char *fig; // trimmed string
 	int s_p; // starting point
-	int wid_k; 
+	int wid_k;
+	int tries;
 }				t_tetr;
 
 size_t		ft_strlen(const char *str);

@@ -65,6 +65,7 @@ t_tetr *create_elem(char *fig, int width, int k)
 	temp->fig = fig;
 	temp->wid = width;
 	temp->wid_k = k;
+	temp->tries = 0;
 	return (temp);
 }
 

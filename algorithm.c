@@ -24,14 +24,14 @@ void fill(t_tetr *list, char *square)
 	while (list->pr_t)
 		list = list->pr_t;
 
-printf("%s\n", square);
+//printf("%s\n", square);
 
 	while (list && (list->s_p != -1))
 	{
 		add_figure(list->fig, square, list->s_p);
 		list = list->n_t;
 	}
-	printf("%s\n", square);
+	//printf("%s\n", square);
 }
 
 
@@ -70,7 +70,7 @@ int check_sp(char *square, t_tetr t, int start, int side)
 		 i = 0;
 		 while (i < all)
 		 {
-		 	if (t.fig[i] != '.')
+		 	if (t.fig[i] != '.' && t.fig[i] != '\0')
 		 		j++;
 		 	i++;
 		 }
@@ -93,7 +93,7 @@ int get_sp(char *square, t_tetr t, int side, int start)
 	{
 		if (check_sp(square, t, i, side) == 1)
 		{
-			printf("YAASSS %i\n", i);
+			//printf("YAASSS %i\n", i);
 			return (i);
 		}
 		i++;
@@ -142,36 +142,34 @@ int try(int side, t_tetr *list, char *sqr)
 {
 	//int temp;
 	int sp;
-	int k;
-
-	k = 0;
+	//int k;
 
 	while (list)
 	{
 		if (list->s_p == -1)
 		{
-			if (( sp = get_sp(sqr, *list, side, k)) == -1)
+			if (( sp = get_sp(sqr, *list, side, list->tries)) == -1)
 			{
-
-				printf("no sp\n");
+				//printf("%s is failed\n", list->fig);
+				//printf("%s\n", sqr);
+				list->tries = 0;
 				if (list->pr_t == NULL)
-					return (0); 
+					return (0);
 				list = list->pr_t;
-				k = list->s_p + 1;
+				list->tries = list->s_p + 1;
 				list->s_p = -1;
-				printf("%s\n", list->fig);
-				printf("%i\n", list->s_p);
-				printf("-----------\n");
-				return (0);
+				clear(sqr);
+				fill(list, sqr);
+				// printf("%s\n", list->fig);
+				// printf("%i\n", list->s_p);
+				// printf("-----------\n");
 				
 				// temp = list->s_p;
-				// clear(sqr);
-				// fill(list, sqr);
+				
 				// get_sp(sqr, *list, side, temp + 1);
 			}
 			else
 			{
-				k = 0;
 				list->s_p = sp;
 				add_figure(list->fig, sqr, sp);
 				list = list->n_t;
@@ -203,7 +201,7 @@ int fit_in_square(int side, t_tetr *list)
 	res = try (side, list, sqr);
 	if (res == 0)
 	{
-		printf("Wha?\n");
+		//printf("Wha?\n");
 		return (0);
 	}
 
