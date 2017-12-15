@@ -98,7 +98,6 @@ int get_sp(char *square, t_tetr t, int side, int start)
 		}
 		i++;
 	}
-	//printf("No way :c\n");
 	return (-1);
 }
 
@@ -143,18 +142,28 @@ int try(int side, t_tetr *list, char *sqr)
 {
 	//int temp;
 	int sp;
+	int k;
+
+	k = 0;
 
 	while (list)
 	{
 		if (list->s_p == -1)
 		{
-			if (( sp = get_sp(sqr, *list, side, 0)) == -1)
+			if (( sp = get_sp(sqr, *list, side, k)) == -1)
 			{
+
 				printf("no sp\n");
+				if (list->pr_t == NULL)
+					return (0); 
+				list = list->pr_t;
+				k = list->s_p + 1;
+				list->s_p = -1;
+				printf("%s\n", list->fig);
+				printf("%i\n", list->s_p);
+				printf("-----------\n");
 				return (0);
-				// if (list->pr_t == NULL)
-				// 	return (0); 
-				// list = list->pr_t;
+				
 				// temp = list->s_p;
 				// clear(sqr);
 				// fill(list, sqr);
@@ -162,6 +171,7 @@ int try(int side, t_tetr *list, char *sqr)
 			}
 			else
 			{
+				k = 0;
 				list->s_p = sp;
 				add_figure(list->fig, sqr, sp);
 				list = list->n_t;
@@ -172,7 +182,7 @@ int try(int side, t_tetr *list, char *sqr)
 	int i;
 	i = 0;
 
-	printf("%i\n", side);
+	//printf("%i\n", side);
 	while (sqr[i])
 	{
 		if (i % side == 0)
@@ -188,7 +198,7 @@ int fit_in_square(int side, t_tetr *list)
 	char *sqr;
 	int res;
 
-printf("here\n");
+	printf("square with %i side\n", side);
 	sqr = create_sqr(side);
 	res = try (side, list, sqr);
 	if (res == 0)
@@ -218,9 +228,9 @@ void algorithm(char **valid, int count)
 	while (res == 0)
 	{
 		side += 1;
-		printf("%s\n", list->fig);
+		//printf("%s\n", list->fig);
 		list = change_list(valid, side, list);
-		printf("%s\n", list->fig);
+		//printf("%s\n", list->fig);
 		res = fit_in_square(side, list);
 	}
 }

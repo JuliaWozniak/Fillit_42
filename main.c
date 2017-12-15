@@ -96,10 +96,10 @@ int main(int argc, char **argv)
 
 	fd = validate_input(argc, argv);
 	valid_char = read_file(fd);
-	printf("HERE 9\n");
+//	printf("HERE 9\n");
 	if (valid_char != NULL)
 	{
-		printf("HERE 10\n");
+		//printf("HERE 10\n");
 		
 		int i;
 

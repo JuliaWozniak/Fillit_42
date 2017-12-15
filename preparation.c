@@ -102,7 +102,6 @@ int wid_k(char *str)
 		i++;
 	}
 	temp[i] = '\0';
-	printf("%s\n", temp);
 	if (ft_strequ(temp, "#...###") == 1)
 		return (3);
 	else if (ft_strequ(temp, "#...##...#") == 1)
@@ -120,7 +119,6 @@ t_tetr *change_list(char **standard, int side, t_tetr *list)
 	int i;
 
 	i = 0;
-	//printf("here 1\n");
 	while (list->n_t)
 	{
 		str = ft_strtrim(standard[i]);
