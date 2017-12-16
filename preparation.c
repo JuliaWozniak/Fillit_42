@@ -1,27 +1,5 @@
 #include "h_fillit.h"
 
-int find_next(char *str)
-{
-	int i;
-
-	i = 1;
-	while (*str++ == '.')
-		i++;
-	return (i);
-}
-
-int switch_k(int k, int side)
-{
-	if (k == 1)
-		return (side - 3);
-	else if (k == 2)
-		return (side - 2);
-	else if (k == 3)
-		return (side - 1);
-	else
-		return (0);
-}
-
 char *prepare_str(char *str, int side)
 {
 	int i;

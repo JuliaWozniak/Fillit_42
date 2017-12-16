@@ -6,7 +6,8 @@ FILES = lib_functions.c \
 		main.c \
 		small.c \
 		preparation.c \
-		algorithm.c
+		algorithm.c \
+		helpers.c
 
 OBJS = $(FILES:.c=.o)
 CFLAGS = -Wall -Wextra -Werror

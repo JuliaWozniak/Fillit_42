@@ -1,18 +1,5 @@
 #include "h_fillit.h"
 
-void add_figure(char *fig, char *square, int s_p)
-{
-	int i;
-
-	i = 0;
-	while (fig[i])
-	{
-		if (fig[i] != '.')
-			square[i + s_p] = fig[i];
-		i++;
-	}
-}
-
 int fit_in_square(int side, t_tetr *list)
 {
 	char *sqr;
@@ -39,7 +26,7 @@ int print_one(char *single)
 		return (3);
 	else if (len == 6)
 		return (2);
-	return(1);
+	return (1);
 }
 
 void print_result(char *sqr, int side)
