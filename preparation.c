@@ -113,6 +113,8 @@ int wid_k(char *str)
 		return (2);
 	else if (ft_strequ(temp, "#...#...##"))
 		return (2);
+	else if (ft_strequ(temp, "#...##..#"))
+		return (2);
 	else
 		return (0);
 }
@@ -162,7 +164,7 @@ t_tetr *prepare_list(char **standard, int side)
 		if (i++ != 0)
 		{
 			if ((current->n_t = create_elem(str, width, k)) == NULL)
-			return (NULL);
+				return (NULL);
 		current->n_t->pr_t = current;
 		current = current->n_t;
 		}

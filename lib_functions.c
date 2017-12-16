@@ -82,3 +82,16 @@ int		ft_strequ(char const *s1, char const *s2)
 	}
 	return (1);
 }
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putstr(char const *s)
+{
+	if (s == NULL)
+		return ;
+	while (*s)
+		ft_putchar(*(s++));
+}
