@@ -23,19 +23,19 @@ If input file is invalid for at least one of the abovementioned reasons the prog
 # Output
 After finding the answer, program prints it like
 
-AAB.<br />
-AAB.<br />
-..B.<br />
-..B.<br />
+ABB.<br />
+ABB.<br />
+A...<br />
+A...<br />
 
 which is an answer to the input file
 
-..AA<br />
-..AA<br />
-....<br />
-....<br />
+A...<br />
+A...<br />
+A...<br />
+A...<br />
 
-.B..<br />
-.B..<br />
-.B..<br />
-.B..<br />
+BB..<br />
+BB..<br />
+....<br />
+....<br />
