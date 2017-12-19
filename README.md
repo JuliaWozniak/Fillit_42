@@ -16,8 +16,8 @@ The input text file should contain from 1 to 26 valid tetraminos. A valid tetram
 #...<br />
 #...<br />
 
-It should be composed of exactly 4 '#' and each of this '#' should touch at least one another '#'.
-Two different tetraminos should be separated by exactly 1 empty line.
+- It should be composed of exactly 4 '#' and each of this '#' should touch at least one another '#'.
+- Two different tetraminos should be separated by exactly 1 empty line.
 If input file is invalid for at least one of the abovementioned reasons the program should show "error" message and stop.
 
 # Output
