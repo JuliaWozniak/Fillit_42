@@ -11,10 +11,10 @@ In choosing the answer it takes into account that
 # Input
 The input text file should contain from 1 to 26 valid tetraminos. A valid tetramino is represented like this
 
-#...
-#...
-#...
-#...
+#...<br />
+#...<br />
+#...<br />
+#...<br />
 
 It should be composed of exactly 4 '#' and each of this '#' should touch at least one another '#'.
 Two different tetraminos should be separated by exactly 1 empty line.
@@ -23,19 +23,19 @@ If input file is invalid for at least one of the abovementioned reasons the prog
 # Output
 After finding the answer, program prints it like
 
-AAB.
-AAB.
-..B.
-..B.
+AAB.<br />
+AAB.<br />
+..B.<br />
+..B.<br />
 
 which is an answer to the input file
 
-..AA
-..AA
-....
-....
+..AA<br />
+..AA<br />
+....<br />
+....<br />
 
-.B..
-.B..
-.B..
-.B..
+.B..<br />
+.B..<br />
+.B..<br />
+.B..<br />
