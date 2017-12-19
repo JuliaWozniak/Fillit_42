@@ -9,7 +9,7 @@ In choosing the answer it takes into account that
 - the program can't rotate a tetramino to fit it into free space.
 
 # Input
-The input text file should contain from 1 to 26 valid tetraminos. A valid tetramino is represented like this
+The input text file should contain from 1 to 26 valid tetraminos. A valid tetramino is represented by 4 x 4 characters like this
 
 #...<br />
 #...<br />
